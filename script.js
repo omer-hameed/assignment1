@@ -119,3 +119,153 @@ console.log(isPalindrome("deed"));
 console.log(isPalindrome("Mosh"));
 console.log(isPalindrome("kayak"));
 console.log(isPalindrome("boeing"));
+
+
+
+
+// DAY 2
+
+// PROBLEM
+//  You are given an array of objects representing the students in a class. Each object has the following properties:
+
+// const students = [ { name: "Alice", grade: 90 }, { name: "Bob", grade: 80 }, { name: "Charlie", grade: 95 }, { name: "Dave", grade: 85 } ]; Your task is to write a set of functions to manipulate this array and perform the following operations:
+
+// Problem # 1: Use the "concat" method to combine the "students" array with an additional array of objects representing new students who joined the class mid-semester. The new students are:
+
+// const newStudents = [ { name: "Eve", grade: 88 }, { name: "Frank", grade: 92 } ];
+const students = [
+  { name: "Alice", grade: 90 },
+  { name: "Bob", grade: 80 },
+  { name: "Charlie", grade: 95 },
+  { name: "Dave", grade: 85 },
+];
+
+const newStudents = students.concat([
+  { name: "Eve", grade: 88 },
+  { name: "Frank", grade: 92 },
+]);
+console.log(newStudents);
+
+// Problem # 2: Use the "entries" method to create an iterator over the "students" array and log each index and value to the console.
+
+// const students = [
+//   { name: "Alice", grade: 90 },
+//   { name: "Bob", grade: 80 },
+//   { name: "Charlie", grade: 95 },
+//   { name: "Dave", grade: 85 },
+// ];
+const iterator = students.entries();
+
+let items = "";
+for (let x of iterator) {
+  items += x;
+}
+console.log(items);
+
+// Problem # 3: Use the "every" method to check if all students have a passing grade (i.e. grade >= 70).
+
+function checkGrade(student) {
+  return student.grade >= 70;
+}
+const passing = students.every(checkGrade);
+console.log(passing);
+
+// SECND
+const allPassing = students.every((student) => student.grade >= 70);
+
+console.log(allPassing);
+
+// Problem # 5: Use the "filter" method to create a new array containing only the students who have a grade above 90.
+
+const toppers = students.filter((student) => student.grade >= 90);
+console.log(toppers);
+
+// Problem # 6: Use the "find" method to find the first student with a name of "Charlie" and log their grade to the console.
+
+// const students = [
+//   { name: "Alice", grade: 90 },
+//   { name: "Bob", grade: 80 },
+//   { name: "Charlie", grade: 95 },
+//   { name: "Dave", grade: 85 },
+// ];
+
+const Charlie = students.find((student) => student.name === "Charlie");
+console.log(Charlie);
+
+//Problem # 7: Use the "findIndex" method to find the index of the first student with a grade of 85.
+
+const studentGrade = students.findIndex((student) => student.grade === 85);
+console.log(studentGrade);
+
+// Problem # 8: Use the "flat" method to flatten an array of arrays. The input array is: const nestedArray = [[1, 2], [3, 4, 5], [6]];
+
+const nestedArray = [[1, 2], [3, 4, 5], [6]];
+
+const flattenArray = nestedArray.flat();
+console.log(flattenArray);
+
+// Problem # 9: Use the "flatMap" method to map over the "students" array and create a new array of objects with a "passing" property that is true if the student has a grade >= 70 and false otherwise.
+const newStudents2 = students.flatMap((student) => student.grade > 70);
+console.log(newStudents2);
+
+// Problem # 10: Use the "forEach" method to log the name of each student to the console.
+
+const studentsName = students.forEach((student) => console.log(student.name));
+// console.log(studentsName);
+
+// Problem # 11: Use the "from" method to create a new array from a string. The string is: const string = "hello world"
+
+const string = "hello world";
+
+const arrayStr = Array.from(string);
+console.log(arrayStr);
+
+//Problem # 12: Use the "includes" method to check if the "students" array includes a student with a name of "Eve"
+
+const checkName = students.includes((student) => student.name === "eve");
+console.log(checkName);
+
+// Problem # 13: Use the "indexOf" method to find the index of the first student with a name of "Bob
+
+//
+//
+
+const checkIndex = students.indexOf("Bob");
+console.log(checkIndex);
+
+// Problem # 14: Use the "map" method to create a new array containing only the grades of the students.
+const onlyGrades = students.map((student) => student.grade);
+
+console.log(onlyGrades);
+
+// Problem # 15: Use the "push" method to add a new student to the end of the "students" array. The new student is: const newStudent = { name: "Grace", grade: 87 };
+
+const newStudent = { name: "Grace", grade: 87 };
+students.push(newStudent);
+console.log(students);
+
+// Problem # 16: Use the "pop" method to remove the last student from the "students" array.
+students.pop();
+console.log(students);
+
+// Problem # 17: Use the "reverse" method to reverse the order of the "students" array
+
+students.reverse();
+console.log(students);
+console.log(students[1]);
+
+// Problem # 18: Use the "shift" method to remove the first student from the "students" array.
+
+students.shift();
+console.log(students);
+
+
+
+
+
+
+
+
+
+
+
