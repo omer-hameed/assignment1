@@ -259,6 +259,108 @@ console.log(students[1]);
 students.shift();
 console.log(students);
 
+// DAY 3
+// ASSIGNMENT 3
+// QUESTION #1
+
+
+function fetchAlbums() {
+  return new Promise((resolve) => {
+    resolve(
+      fetch("https://jsonplaceholder.typicode.com/albums/")
+        .then((response) => response.json())
+        .then((albums) => {
+          console.log("<<hy", albums);
+          const filteredAlbums = albums.filter((album) => album.title);
+
+          const simplifiedAlbums = filteredAlbums.map((album) => ({
+            id: album.id,
+            title: album.title,
+          }));
+
+          return simplifiedAlbums;
+        })
+        .catch((error) => {
+          console.error("Error fetching albums:", error);
+        })
+    );
+  });
+}
+
+fetchAlbums()
+  .then((albums) => {
+    console.log("Fetched albums:", albums);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });
+
+// question2
+function fetchPostsAxios() {
+  return new Promise((resolve) => {
+    resolve(
+      axios
+        .get("https://jsonplaceholder.typicode.com/posts/")
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+          const filterPosts = data.filter((post) => post.title);
+          const sortPosts = filterPosts.sort((a, b) => a.id - b.id);
+          return sortPosts;
+        })
+
+        .catch((error) => {
+          console.error("Error fetching posts:", error);
+        })
+    );
+  });
+}
+
+fetchPostsAxios();
+
+// QUESTION #3
+
+function fetchUser() {
+  return new Promise((resolve) => {
+    resolve(
+      fetch("https://jsonplaceholder.typicode.com/users/")
+        .then((response) => response.json())
+        .then((users) => {
+          console.log(users);
+          const filteredUser = users.filter((user) => user.email);
+          const totalUsersWithPhone = filteredUser.reduce((count, user) => {
+            return user.phone ? count + 1 : count;
+          }, 0);
+          console.log(totalUsersWithPhone);
+        })
+    );
+  });
+}
+fetchUser();
+
+// Question 5
+
+function fetchTodos() {
+  return new Promise((resolve) => {
+    resolve(
+      fetch("https://jsonplaceholder.typicode.com/todos")
+        .then((response) => response.json())
+        .then((todos) => {
+          const filterCompleted = todos.filter((todo) => todo.completed);
+
+          const formatted = filterCompleted.map((todo) => ({
+            id: todo.id,
+            title: todo.title,
+            completed: todo.completed,
+          }));
+          return formatted;
+        })
+    );
+  });
+}
+fetchTodos().then((todos) => {
+  console.log(todos);
+});
 
 
 
