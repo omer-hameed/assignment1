@@ -265,7 +265,7 @@ console.log(students);
 
 
 function fetchAlbums() {
-  return new Promise((resolve) => {
+  return new Promise((resolve,reject) => {
     resolve(
       fetch("https://jsonplaceholder.typicode.com/albums/")
         .then((response) => response.json())
