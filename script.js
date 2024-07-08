@@ -333,6 +333,9 @@ function fetchUser() {
           }, 0);
           console.log(totalUsersWithPhone);
         })
+        .catch((error) => {
+          console.error("Error fetching posts:", error);
+        })
     );
   });
 }
@@ -355,19 +358,16 @@ function fetchTodos() {
           }));
           return formatted;
         })
+        .catch((error) => {
+          console.error("Error fetching posts:", error);
+        })
     );
   });
 }
-fetchTodos().then((todos) => {
-  console.log(todos);
-});
-
-
-
-
-
-
-
-
-
-
+fetchTodos()
+  .then((todos) => {
+    console.log(todos);
+  })
+  .catch((error) => {
+    console.error("Error fetching posts:", error);
+  });
