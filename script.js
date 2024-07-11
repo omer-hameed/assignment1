@@ -371,3 +371,47 @@ fetchTodos()
   .catch((error) => {
     console.error("Error:", error);
   });
+
+
+
+// ASSIGNMENT 4
+
+// Question # 1 Define a function named uniqueObjects that takes array of objects and returns their unique array of objects. For example:
+// input: [
+// {id:1,name:"abubakar",role:"engineering manager"},
+// {id:2,name:"maham",role:"developer"},
+// {id:3,name:"shawal",role:"developer"},
+// {id:1,name:"abubakar",role:"engineering manager"},
+// ]
+
+
+
+const array = [
+  { id: 1, name: "abubakar", role: "engineering manager" },
+  { id: 2, name: "maham", role: "developer" },
+  { id: 3, name: "shawal", role: "developer" },
+  { id: 1, name: "abubakar", role: "engineering manager" },
+];
+
+function uniqueObjects(arr) {
+  const filterObjects = arr.filter((curr, index) => {
+    return index === arr.findIndex((n) => n.id === curr.id);
+  });
+  return filterObjects;
+}
+console.log(uniqueObjects(array));
+
+
+
+// Question # 2 Define a function named longestWord that takes string and returns  longest word. For example:
+// input : "This is Optimusfox js internship class"
+
+function longest(str) {
+  let string = str.split(" ");
+  return string.sort((a, b) => b.length - a.length)[0];
+
+console.log(longest("This is Optimusfox js internship class "));
+
+
+
+
